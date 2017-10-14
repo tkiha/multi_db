@@ -1,3 +1,13 @@
+%h1= "default database 【#{@users.connection.current_database}】"
 - @users.each do |user|
   = user.name
+  = user.updated_at
+  = link_to 'update', user_path(user), method: :patch
+  %hr
+
+%h1= "other database 【#{@other_users.connection.current_database}】"
+- @other_users.each do |other_user|
+  = other_user.name
+  = other_user.updated_at
+  = link_to 'update', other_user_path(other_user), method: :patch
   %hr

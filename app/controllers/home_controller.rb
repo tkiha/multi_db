@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @users = User.all
+    @users = User.order(:id)
+    @other_users = OtherUser.order(:id)
   end
 end
